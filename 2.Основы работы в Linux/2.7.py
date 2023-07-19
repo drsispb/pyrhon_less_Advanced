@@ -19,19 +19,12 @@ app = Flask(__name__)
 
 def check_date(date: int) -> bool:
     if len(str(date)) == 8:
-        cnt = 0
-        for_check_date = ''
-
-        for i_elem in str(date):
-            cnt += 1
-            if cnt == 5 or cnt == 7:
-                for_check_date += '/'
-            for_check_date += i_elem
         try:
-            valid_date = time.strptime(for_check_date, '%Y/%m/%d')
+            time.strptime(str(date), '%Y%m%d')
+            return True
         except ValueError:
             print('Invalid date!')
-        return True
+            return False
     else:
         return False
 

@@ -20,15 +20,15 @@ app = Flask(__name__)
 
 @app.route("/max_number/<path:num_string>")
 def hello_function_num(num_string: str) -> str:
-    num_list = num_string.split('/')
-    num_list_int = []
-    for i_elem in num_list:
-        try:
-            num_list_int.append(int(i_elem))
-        except:
-            print('Не число ----', i_elem)
-    max_num: int = max(num_list_int)
-    return f'Max number <i>{max_num}</i>'
+    try:
+        num_list_int = [int(x) for x in num_string.split('/')]
+        max_num: int = max(num_list_int)
+        return f'Max number <i>{max_num}</i>'
+    except ValueError:
+        print('Введено ошибочное значение')
+
+
+
 
 
 if __name__ == '__main__':

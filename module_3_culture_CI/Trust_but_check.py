@@ -38,8 +38,3 @@ class Person:
         else:
             return self.address is None
 
-
-person = Person('Bob', 176)
-person.set_address('')
-print(person.address)
-print(person.is_homeless())

@@ -13,7 +13,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-weekday = datetime.today().weekday()
+
 
 weekdays_tuple = ('Хорошего понедельника', 'Хорошего вторника', 'Хорошей среда', 'Хорошего четверга',
                   'Хорошей пятницы', 'Хорошей субботы', 'Хорошего воскресенья')
@@ -28,10 +28,11 @@ weekdays_tuple = ('Хорошего понедельника', 'Хорошего
 # print(sys.getsizeof(weekdays_dict))
 @app.route("/hello/<username>")
 def hello(username):
+    weekday = datetime.today().weekday()
     day = weekdays_tuple[weekday]
     return f'Привет, {username}. {day}!'
 
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5555)

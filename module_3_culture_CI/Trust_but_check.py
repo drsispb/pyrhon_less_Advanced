@@ -34,7 +34,7 @@ class Person:
 
     def is_homeless(self):
         if len(self.address) > 1:
-            return True
+            return False
         else:
-            return self.address is None
+            return True
 

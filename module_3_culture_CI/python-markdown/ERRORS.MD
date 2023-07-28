@@ -25,7 +25,8 @@
 
 ## **after** ##
 ### **def is_homeless(self):** ###
-        if len(self.address) > 1:
-            return True
-        else:
-            return self.address is None
+        def is_homeless(self):
+            if len(self.address) > 1:
+                return False
+            else:
+                return True

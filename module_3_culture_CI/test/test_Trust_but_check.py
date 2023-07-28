@@ -25,5 +25,5 @@ class PersonTestCase(TestCase):
         self.assertTrue(self.person.get_address(), 'SPb')
 
     def test_is_homeless(self):
-        self.person.set_address('SPb')
+        self.person.set_address('')
         self.assertIsInstance(self.person.is_homeless(), bool)

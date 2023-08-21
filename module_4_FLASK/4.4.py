@@ -24,6 +24,11 @@ def uptime():
     return f"Current uptime is {UPTIME}"
 
 
+#    command_str = f"uptime"
+#    command = shlex.split(command_str)
+#    result = subprocess.run(command, capture_output=True)
+
+
 if __name__ == '__main__':
     '''Для работы с postman'''
     app.config["WTF_CSRF_ENABLED"] = False

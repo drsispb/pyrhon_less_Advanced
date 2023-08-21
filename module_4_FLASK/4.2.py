@@ -26,7 +26,7 @@ from wtforms.validators import InputRequired, Email, NumberRange, ValidationErro
 from dataclasses import Field
 from flask import Flask, request
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField
+from wtforms import StringField, IntegerField, Form
 from wtforms.validators import InputRequired, Email, NumberRange
 from typing import Optional
 import re
@@ -62,7 +62,38 @@ app = Flask(__name__)
 #     length_check = NumberLength()
 #     number = request.form.get('number')
 #     return length_check(number)
+"""function"""
+#
+# @app.route("/registration", methods=["POST"])
+# def length(min=1111111111, max=9999999999):
+#     message = 'Must be between %d and %d characters long.' % (min, max)
+#
+#     def _length(form, field):
+#         l = field.data and len(field.data) or 0
+#         if l < min or l > max:
+#             raise ValidationError(message)
+#
+#     return _length
+#
+# class MyForm(Form):
+#     name = StringField('Name', [InputRequired(), length(max=50)])
 
+
+"""class"""
+# class Length(object):
+#     def __init__(self, min=1111111111, max=9999999999, message=None):
+#         self.min = min
+#         self.max = max
+#         if not message:
+#             message = 'Field must be between %i and %i characters long.' % (min, max)
+#         self.message = message
+#
+#     def __call__(self, form, field):
+#         l = field.data and len(field.data) or 0
+#         if l < self.min or l > self.max:
+#             raise ValidationError(self.message)
+#
+# length = Length
 
 if __name__ == '__main__':
     '''Для работы с postman'''
